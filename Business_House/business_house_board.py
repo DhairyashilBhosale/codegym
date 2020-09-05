@@ -20,11 +20,11 @@ class BusinessHouseBoard():
 			if cell_type == 'E':
 				self._board_map.append({'cell_type':'E', 'players_in_cell':[]})
 			elif cell_type == 'J':
-				self.board_map.append({'cell_type':'J', 'fine':150, 'players_in_cell':[]})
+				self._board_map.append({'cell_type':'J', 'fine':150, 'players_in_cell':[]})
 			elif cell_type == 'T':
-				self.board_map.append({'cell_type':'T', 'treasure_val':200, 'players_in_cell':[]})
+				self._board_map.append({'cell_type':'T', 'treasure_val':200, 'players_in_cell':[]})
 			elif cell_type == 'H':
-				self.board_map.append({'cell_type':'H', 'owner':None, 'rent':50, 'worth':200, 'players_in_cell':[]})
+				self._board_map.append({'cell_type':'H', 'owner':None, 'rent':50, 'worth':200, 'players_in_cell':[]})
 
 	def get_board(self):
 		'''

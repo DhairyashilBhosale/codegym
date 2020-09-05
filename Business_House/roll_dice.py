@@ -12,5 +12,5 @@ class RollDice():
 		'''
 		return random number between range
 		'''
-		return random.randint(self._min, self._max)
+		return randint(self._min, self._max)
 		

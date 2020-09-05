@@ -9,7 +9,7 @@ class PlayBusinessHouse():
 		'''
 		init player ids
 		'''
-		self._players = [Player(player_id) for player_id in player_ids]
+		self._players = [Player(player_id) for player_id in range(player_ids)]
 		self._businessHouseBoard = BusinessHouseBoard()
 		self._board_map = self._businessHouseBoard.get_board()
 		self._roll_dice = RollDice(2,12)
@@ -20,7 +20,7 @@ class PlayBusinessHouse():
 		play as per rules.
 		'''
 		
-		for roll_count in self._max_roll_per_player:
+		for roll_count in range(self._max_roll_per_player):
 			for _player in self._players:
 				# roll the dice
 				_roll = self._roll_dice.roll()
@@ -75,7 +75,7 @@ class PlayBusinessHouse():
 		elif cell['cell_type'] == 'J':
 			player.debit_money(cell['fine'])
 		elif cell['cell_type'] == 'T':
-			player.credit_money(cell['treasure_val']):
+			player.credit_money(cell['treasure_val'])
 		elif cell['cell_type'] == 'H':
 			if cell['owner'] == None:
 				cell['owner'] = player.id
