@@ -1,2 +1,2 @@
 # codegym
-coding practices
+coding practices. 
