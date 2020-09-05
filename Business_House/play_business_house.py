@@ -41,17 +41,17 @@ class PlayBusinessHouse():
 		worth = dict()
 		
 		for player in self._players:
-			worth[player_id] = player.get_money()
+			worth[player.id] = player.get_money()
 		
 		_worth_decreasing_ord = sorted(worth, key=worth.get, reverse=True)
 		for _player in  _worth_decreasing_ord:
-			print(_player+" has total worth: "+worth[_player])
+			print(str(_player)+" has total worth: "+str(worth[_player]))
 		
 	def _update_player_pos(self, player, roll):
 		'''update player pos.
 		
 		'''
-		_pos = (self._board_map.index(player.get_curr_pos()) + roll) % len(self._board_map)
+		_pos = (player.get_curr_pos() + roll) % len(self._board_map)
 		player.update_pos(_pos)
 		return player
 
@@ -66,7 +66,7 @@ class PlayBusinessHouse():
 		
 		return player
 		
-	def __update_player_status(self, cell, player):
+	def _update_player_status(self, cell, player):
 		'''
 		update player status and cell info
 		'''
