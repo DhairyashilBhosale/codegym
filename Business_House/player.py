@@ -36,5 +36,5 @@ class Player():
 		'''
 		update current position
 		'''
-		self.current_pos = pos
+		self._current_pos = pos
 
