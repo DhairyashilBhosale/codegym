@@ -33,23 +33,43 @@ class PlayBusinessHouse():
 				
 				# Update current player obj
 				self._players[self._players.index(_player)] =  _player
-								
+				
+	def _hotel_bought_by_player(self):
+		'''
+		'''
+
+		hotel_owned_dict = { _player.id:0 for _player in self._players}
+
+		for cell in self._board_map:
+			if cell['cell_type'] == 'H':
+				if cell['owner']:
+					hotel_owned_dict[cell['owner']] += 1
+						
+		return 	hotel_owned_dict
+
 	def get_winner(self):
 		'''
 		get Total worth
 		'''
+		import pdb
+		pdb.set_trace()
 		worth = dict()
-		
 		for player in self._players:
 			worth[player.id] = player.get_money()
 		
+		#get Owned Hotels:
+		_owned_hotels = self._hotel_bought_by_player()
+		for _player, _owned_hotel_count in _owned_hotels.items():
+			worth[_player] = worth[_player] + (_owned_hotel_count * 200 )
+		
+		#Print total worth of players in Decreasing Order.
 		_worth_decreasing_ord = sorted(worth, key=worth.get, reverse=True)
 		for _player in  _worth_decreasing_ord:
 			print(str(_player)+" has total worth: "+str(worth[_player]))
 		
 	def _update_player_pos(self, player, roll):
-		'''update player pos.
-		
+		'''
+		update player pos.
 		'''
 		_pos = (player.get_curr_pos() + roll) % len(self._board_map)
 		player.update_pos(_pos)
@@ -65,7 +85,7 @@ class PlayBusinessHouse():
 		self._board_map[_pos] = cell
 		
 		return player
-		
+
 	def _update_player_status(self, cell, player):
 		'''
 		update player status and cell info
@@ -86,13 +106,4 @@ class PlayBusinessHouse():
 				player.debit_money(cell['rent'])
 				
 		return player, cell
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
+
