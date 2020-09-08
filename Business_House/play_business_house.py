@@ -77,10 +77,12 @@ class PlayBusinessHouse():
 		elif cell['cell_type'] == 'T':
 			player.credit_money(cell['treasure_val'])
 		elif cell['cell_type'] == 'H':
-			if cell['owner'] == None:
+			if cell['owner'] == None and player.get_money() >= cell['worth']:
 				cell['owner'] = player.id
 				player.debit_money(cell['worth'])
 			elif player.id == cell['owner']:
+				pass
+			else:
 				player.debit_money(cell['rent'])
 				
 		return player, cell
