@@ -51,8 +51,6 @@ class PlayBusinessHouse():
 		'''
 		get Total worth
 		'''
-		import pdb
-		pdb.set_trace()
 		worth = dict()
 		for player in self._players:
 			worth[player.id] = player.get_money()
