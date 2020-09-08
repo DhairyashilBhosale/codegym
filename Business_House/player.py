@@ -30,7 +30,8 @@ class Player():
 		'''
 		update money
 		'''
-		self._money -= money
+		if self._money >= money:
+			self._money -= money
 	
 	def update_pos(self, pos):
 		'''
