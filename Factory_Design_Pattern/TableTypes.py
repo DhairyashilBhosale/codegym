@@ -12,7 +12,7 @@ class SmallTable(ITable):
 	def get_table(self):
 		"""
 		"""
-		print({"Height": self.height, "Width": self.width, "Length": self.length})
+		return {"Height": self.height, "Width": self.width, "Length": self.length}
 
 class LargeTable(ITable):
 
@@ -26,7 +26,7 @@ class LargeTable(ITable):
 	def get_table(self):
 		"""
 		"""
-		print({"Height": self.height, "Width": self.width, "Length": self.length})
+		return {"Height": self.height, "Width": self.width, "Length": self.length}
 
 class MediumTable(ITable):
 
@@ -40,7 +40,7 @@ class MediumTable(ITable):
 	def get_table(self):
 		"""
 		"""
-		print( {"Height": self.height, "Width": self.width, "Length": self.length})
+		return {"Height": self.height, "Width": self.width, "Length": self.length}
 
 
 
