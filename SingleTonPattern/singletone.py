@@ -19,7 +19,7 @@ class A(object):
 # SingleTon Using Decorator 
 def singleton(cls):
 	
-	instance = {}
+	instance = dict()
 	def getinstance():
 		if cls not in instance:
 			instance[cls] = cls()
